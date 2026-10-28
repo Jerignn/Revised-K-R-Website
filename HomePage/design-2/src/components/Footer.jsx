@@ -2,9 +2,10 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logo from "../../../assets/img/logo.png";
 
-// Footer standard: all text is 16px on a 24px line
-const title = "mb-3.5 text-base/6 font-bold tracking-[0.06em] text-white uppercase";
-const list = "grid gap-2";
+// Footer standard: all text is 16px on a 24px line, all spacing is 24px,
+// and every link is a block at least 24px tall (the WCAG minimum target size)
+const title = "mb-6 text-base/6 font-bold tracking-[0.06em] text-white uppercase";
+const list = "grid gap-6 [&_a]:block [&_a]:min-h-6";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -16,7 +17,7 @@ function Footer() {
   return (
     <footer className="bg-navy pt-[72px] pb-[120px] text-base/6 text-[#b5c3d3] [&_a]:no-underline [&_a:hover]:text-white">
       <div className="wrap">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <div>
             {/* The logo is dark, so it sits on a white tile */}
             <img className="mb-4 box-content h-16 w-auto rounded-xl bg-white px-3.5 py-2.5" src={logo} alt="K&R Heating & Cooling" width="186" height="109" loading="lazy" />

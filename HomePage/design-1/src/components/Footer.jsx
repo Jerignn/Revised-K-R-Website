@@ -2,9 +2,10 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logoWhite from "../../../assets/img/logo-white.png";
 
-// Footer standard: all text is 16px on a 24px line
-const title = "mb-3.5 font-mono text-base/6 font-medium tracking-[0.08em] text-white uppercase";
-const list = "grid gap-2";
+// Footer standard: all text is 16px on a 24px line, all spacing is 24px,
+// and every link is a block at least 24px tall (the WCAG minimum target size)
+const title = "mb-6 font-mono text-base/6 font-medium tracking-[0.08em] text-white uppercase";
+const list = "grid gap-6 [&_a]:block [&_a]:min-h-6";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -23,7 +24,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="grid gap-9 py-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {menusWithPages.map((menu) => (
             <div key={menu.href}>
               <h2 className={title}>
