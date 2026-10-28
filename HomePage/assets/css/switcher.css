@@ -1,0 +1,50 @@
+/* Floating design switcher shared by both concepts */
+.switcher {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  font: 500 13px/1 "Inter", system-ui, sans-serif;
+  max-width: calc(100vw - 32px);
+  animation: sw-in 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) 0.4s both;
+}
+@keyframes sw-in { from { opacity: 0; transform: translate(-50%, 24px); } }
+.switcher a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px; /* standard touch target */
+  padding: 0 16px;
+  border-radius: 999px;
+  color: #e9e6e1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s, transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.switcher a:hover { background: rgba(255, 255, 255, 0.08); color: #fff; transform: translateY(-2px); }
+.switcher a:active { transform: scale(0.94); transition-duration: 0.1s; }
+.switcher a[aria-current="page"] { background: #ba4426; color: #fff; box-shadow: 0 4px 14px rgba(186, 68, 38, 0.45); }
+.switcher a[aria-current="page"]:hover { background: #e0623d; }
+.switcher a svg { transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.switcher a:hover svg { transform: rotate(90deg); }
+.switcher .sw-key { font-weight: 700; opacity: 0.7; }
+.switcher .sw-sep { width: 1px; height: 22px; background: rgba(255, 255, 255, 0.15); margin: 0 4px; }
+.switcher svg { width: 15px; height: 15px; }
+@media (max-width: 520px) {
+  .switcher { font-size: 12px; bottom: 12px; }
+  .switcher a { padding: 0 12px; }
+  .switcher .sw-long { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .switcher, .switcher a, .switcher a svg { animation: none; transition: none; }
+}
