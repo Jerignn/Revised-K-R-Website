@@ -1,5 +1,6 @@
 import Icon from "./Icon.jsx";
-import { badges, valueChips } from "../data/content.js";
+import BadgeCarousel from "./BadgeCarousel.jsx";
+import { valueChips } from "../data/content.js";
 
 function Values() {
   return (
@@ -25,10 +26,8 @@ function Values() {
           ))}
         </div>
 
-        <div className="badges" data-reveal="4">
-          {badges.map((badge) => (
-            <img src={badge.image} alt={badge.alt} loading="lazy" height="58" key={badge.alt} />
-          ))}
+        <div data-reveal="4">
+          <BadgeCarousel />
         </div>
       </div>
     </section>

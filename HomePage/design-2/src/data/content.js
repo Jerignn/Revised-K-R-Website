@@ -20,13 +20,7 @@ export const business = {
   reviewsLink: "https://www.google.com/search?q=K%26R+Heating+%26+Cooling+Kerrville+reviews",
 };
 
-// ---------- Header menu ----------
-export const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Maintenance", href: "#plan" },
-  { label: "Reviews", href: "#reviews" },
-];
+// The header and footer menu lives in shared/pages.js (siteMenu)
 
 // ---------- Hero: "What can we help you with today?" ----------
 // Each card jumps to a section. If it has a message, that text is put into the contact form.

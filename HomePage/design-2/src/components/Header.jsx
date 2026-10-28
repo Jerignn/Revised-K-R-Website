@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Button from "./Button.jsx";
 import Icon from "./Icon.jsx";
-import { business, navLinks } from "../data/content.js";
+import NavItem from "./NavItem.jsx";
+import { business } from "../data/content.js";
+import { siteMenu } from "../../../shared/pages.js";
 import logo from "../../../assets/img/logo.png";
 
-function Header() {
+function Header({ path }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Stop the page from scrolling while the mobile menu is open
@@ -34,15 +36,13 @@ function Header() {
   return (
     <header className="header">
       <div className="wrap">
-        <a className="logo" href="#top" aria-label="K&R Heating & Cooling home">
+        <a className="logo" href="#/" aria-label="K&R Heating & Cooling home">
           <img src={logo} alt="K&R Heating & Cooling logo" width="186" height="109" />
         </a>
 
         <nav className={menuOpen ? "nav is-open" : "nav"} id="site-nav" aria-label="Main">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={closeMenu}>
-              {link.label}
-            </a>
+          {siteMenu.map((link) => (
+            <NavItem key={link.href} link={link} path={path} onNavigate={closeMenu} />
           ))}
           <Button href={business.phoneLink} size="sm" onClick={closeMenu}>
             <Icon name="phone" /> {business.phone}

@@ -1,8 +1,13 @@
 import { business } from "../data/content.js";
+import { siteMenu } from "../../../shared/pages.js";
 import logo from "../../../assets/img/logo.png";
 
 function Footer() {
   const year = new Date().getFullYear();
+
+  // Menu items with a dropdown get their own column; the rest share one
+  const menusWithPages = siteMenu.filter((link) => link.children);
+  const singleLinks = siteMenu.filter((link) => !link.children);
 
   return (
     <footer className="footer">
@@ -13,23 +18,29 @@ function Footer() {
             <p className="footer__about">Locally owned &amp; operated. Your home comfort is our #1 priority.</p>
           </div>
 
-          <div>
-            <h2 className="footer__title">Services</h2>
-            <ul>
-              <li><a href="#services">Air Conditioners</a></li>
-              <li><a href="#services">Furnaces</a></li>
-              <li><a href="#services">Ductless</a></li>
-              <li><a href="#commercial">Commercial</a></li>
-            </ul>
-          </div>
+          {menusWithPages.map((menu) => (
+            <div key={menu.href}>
+              <h2 className="footer__title">
+                <a href={menu.href}>{menu.label}</a>
+              </h2>
+              <ul>
+                {menu.children.map((child) => (
+                  <li key={child.href}>
+                    <a href={child.href}>{child.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div>
             <h2 className="footer__title">Company</h2>
             <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#plan">Maintenance plans</a></li>
-              <li><a href="#reviews">Reviews</a></li>
-              <li><a href="#contact">Contact</a></li>
+              {singleLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
 
