@@ -22,46 +22,21 @@ export const business = {
 
 // The header and footer menu lives in shared/pages.js (siteMenu)
 
-// ---------- Hero: "What can we help you with today?" ----------
-// Each card jumps to a section. If it has a message, that text is put into the contact form.
+// ---------- Hero booking form: "What do you need?" ----------
+// short is the label on the button; title is what the form records
 export const helpOptions = [
-  {
-    icon: "tools",
-    title: "Something isn't working",
-    text: "No heat, no cooling, strange noises or leaks.",
-    linkText: "Request a repair",
-    link: "#contact",
-    message: "My heating or cooling system isn't working.",
-  },
-  {
-    icon: "calendar",
-    title: "Time for a tune-up",
-    text: "Two visits a year and member discounts with our plan.",
-    linkText: "Compare the plan",
-    link: "#plan",
-  },
-  {
-    icon: "tag",
-    title: "Replace or upgrade",
-    text: "Free estimates on new installs, with financing available.",
-    linkText: "Get a free estimate",
-    link: "#contact",
-    message: "I'd like a free estimate on a new system.",
-  },
-  {
-    icon: "building",
-    title: "Help for my business",
-    text: "Installs, repairs and maintenance for commercial buildings.",
-    linkText: "Commercial HVAC",
-    link: "#commercial",
-  },
+  { icon: "tools", short: "Repair", title: "Something isn't working" },
+  { icon: "calendar", short: "Tune-up", title: "Time for a tune-up" },
+  { icon: "tag", short: "New system", title: "Replace or upgrade" },
+  { icon: "building", short: "Business", title: "Help for my business" },
 ];
 
-// ---------- Service tabs ----------
-export const serviceTabs = [
+// ---------- Service cards ----------
+export const serviceCards = [
   {
     id: "cool",
     label: "Cooling",
+    icon: "snow",
     title: "Cool, quiet summers.",
     text: "Texas heat doesn't wait, and neither do we. From quick AC repairs to complete system replacements, our certified techs get you comfortable again — with honest options, not pressure.",
     pills: ["AC repair", "New installations", "Seasonal tune-ups", "Free second opinion"],
@@ -73,6 +48,7 @@ export const serviceTabs = [
   {
     id: "heat",
     label: "Heating",
+    icon: "flame",
     title: "Warm, safe winters.",
     text: "Furnaces, heat pumps and air handlers — repaired, replaced and tuned up with full safety checks, so your home stays cozy when the Hill Country nights turn cold.",
     pills: ["Furnaces", "Heat pumps", "Air handlers", "Combustion checks"],
@@ -84,6 +60,7 @@ export const serviceTabs = [
   {
     id: "duct",
     label: "Ductless",
+    icon: "fan",
     title: "Comfort, room by room.",
     text: "Ductless mini-splits deliver targeted heating and cooling without ductwork — perfect for additions, workshops and that one room that never feels right. We're a Ductless Preferred Pro.",
     pills: ["Mini-splits", "Multi-zone", "No ductwork needed", "Energy efficient"],
@@ -95,6 +72,7 @@ export const serviceTabs = [
   {
     id: "comm",
     label: "Commercial",
+    icon: "building",
     title: "Keep business running.",
     text: "When HVAC fails at work, we respond quickly so you can carry on as usual. Custom installs, replacements, repairs and maintenance for every kind of business.",
     pills: ["Installation", "Replacements", "Repairs", "Maintenance"],
@@ -103,6 +81,13 @@ export const serviceTabs = [
     image: commercialImage,
     imageAlt: "Commercial HVAC units on a rooftop",
   },
+];
+
+// ---------- How it works ----------
+export const steps = [
+  { title: "Book or call", text: "Tell us what's going on. We answer 24 hours a day, 7 days a week." },
+  { title: "Get honest options", text: "A certified technician diagnoses the problem and walks you through repair and replacement options." },
+  { title: "Enjoy the comfort", text: "We get it done right — backed by our true 30-day, 100% satisfaction guarantee." },
 ];
 
 // ---------- Why K&R ----------

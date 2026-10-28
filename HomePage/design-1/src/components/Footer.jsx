@@ -12,12 +12,14 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div className="footer__grid">
-          <div>
-            <img className="footer__logo" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
-            <p className="footer__about">Locally owned &amp; operated. Your home comfort is our #1 priority.</p>
-          </div>
+        <div className="footer__top">
+          <img className="footer__logo" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
+          <p className="footer__about">
+            Locally owned &amp; operated. <em>Your home comfort is our #1 priority.</em>
+          </p>
+        </div>
 
+        <div className="footer__grid">
           {menusWithPages.map((menu) => (
             <div key={menu.href}>
               <h2 className="footer__title">
@@ -60,11 +62,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="footer__big" aria-hidden="true">K&amp;R Comfort</div>
-
         <div className="footer__base">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
-          <span>Kerrville, Texas</span>
+          <span>Printed in Kerrville, Texas</span>
         </div>
       </div>
     </footer>

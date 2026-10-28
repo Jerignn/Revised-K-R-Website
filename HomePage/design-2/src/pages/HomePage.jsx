@@ -1,26 +1,28 @@
 import Hero from "../components/Hero.jsx";
-import ServiceTabs from "../components/ServiceTabs.jsx";
+import ServiceGrid from "../components/ServiceGrid.jsx";
 import Values from "../components/Values.jsx";
-import Commercial from "../components/Commercial.jsx";
+import Steps from "../components/Steps.jsx";
 import MaintenancePlan from "../components/MaintenancePlan.jsx";
+import Commercial from "../components/Commercial.jsx";
 import Reviews from "../components/Reviews.jsx";
 import Faq from "../components/Faq.jsx";
-import Contact from "../components/Contact.jsx";
+import CtaBand from "../components/CtaBand.jsx";
 
-// Design 2 — Light & Friendly
+// Design 2 — Clean & Modern
 // The page is just a list of sections, top to bottom.
-// The header and footer come from Layout.
+// The header and footer come from Layout. The booking form is in the Hero.
 function HomePage() {
   return (
     <>
       <Hero />
-      <ServiceTabs />
+      <ServiceGrid />
       <Values />
-      <Commercial />
+      <Steps />
       <MaintenancePlan />
+      <Commercial />
       <Reviews />
       <Faq />
-      <Contact />
+      <CtaBand />
     </>
   );
 }

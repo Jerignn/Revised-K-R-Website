@@ -30,7 +30,6 @@ function PromotionsPage() {
       </section>
 
       <MaintenancePlan />
-      <div className="spacer"></div>
       <Contact />
     </>
   );

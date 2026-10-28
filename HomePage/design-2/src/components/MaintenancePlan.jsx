@@ -2,65 +2,65 @@ import Button from "./Button.jsx";
 import Icon from "./Icon.jsx";
 import { planRows } from "../data/content.js";
 
-// A tick for "included", a dash for "not included" (with words for screen readers)
-function Mark({ included }) {
-  if (included) {
-    return (
-      <span className="mark mark--yes">
-        <Icon name="check" />
-        <span className="sr-only">Included</span>
-      </span>
-    );
-  }
+// One side of the comparison, shown as a pricing card.
+// member: true for the plan card, false for the "no plan" card
+function PlanCard({ member }) {
   return (
-    <span className="mark">
-      <span aria-hidden="true">—</span>
-      <span className="sr-only">Not included</span>
-    </span>
+    <div className={member ? "plan-card plan-card--member" : "plan-card"}>
+      <h3>{member ? "Plan member" : "No plan"}</h3>
+      <div className="price">
+        {member ? (
+          <>
+            <small>From </small>$180<small> / year</small>
+          </>
+        ) : (
+          "Pay per visit"
+        )}
+      </div>
+      <p className="plan-card__sub">{member ? "Two visits a year, plus member perks." : "Standard rates, no member perks."}</p>
+
+      <ul>
+        {planRows.map((row) => {
+          const included = member ? row.member : row.noPlan;
+          return (
+            <li className={included ? "is-yes" : "is-no"} key={row.text}>
+              <span className="mark" aria-hidden="true">{included ? <Icon name="check" /> : "—"}</span>
+              <span className="sr-only">{included ? "Included: " : "Not included: "}</span>
+              {row.text}
+            </li>
+          );
+        })}
+      </ul>
+
+      {member && (
+        <Button href="#contact">
+          Join the plan <Icon name="arrow" />
+        </Button>
+      )}
+    </div>
   );
 }
 
 function MaintenancePlan() {
   return (
-    <section id="plan">
-      <div className="plan" data-reveal="1">
-        <div className="plan__content">
+    <section className="section plan" id="plan">
+      <div className="wrap plan__grid">
+        <div data-reveal="1">
           <span className="kicker">Preventive maintenance plan</span>
           <h2>Is the plan worth it? Here's the difference.</h2>
-          <div className="price">
-            <small>From </small>$180<small> / year · 2 visits</small>
-          </div>
-          <p>
+          <p className="lede">
             A complete 20+ point inspection and tune-up of your heating and cooling, twice a year — for lower
             bills, fewer breakdowns and longer equipment life.
           </p>
-          <Button href="#contact" variant="dark">
-            Join the plan <Icon name="arrow" />
-          </Button>
-          <div>
-            <span className="promo-tag">Free maintenance package with complete system installs</span>
-          </div>
+          <span className="promo-tag">
+            <Icon name="tag" size={16} /> Free maintenance package with complete system installs
+          </span>
         </div>
 
-        <table className="compare">
-          <caption className="sr-only">What plan members get compared with no plan</caption>
-          <thead>
-            <tr>
-              <th scope="col">What you get</th>
-              <th scope="col" className="compare__member">Plan member</th>
-              <th scope="col">No plan</th>
-            </tr>
-          </thead>
-          <tbody>
-            {planRows.map((row) => (
-              <tr key={row.text}>
-                <th scope="row">{row.text}</th>
-                <td className="compare__member"><Mark included={row.member} /></td>
-                <td><Mark included={row.noPlan} /></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="plan__cards" data-reveal="2">
+          <PlanCard member={true} />
+          <PlanCard member={false} />
+        </div>
       </div>
     </section>
   );

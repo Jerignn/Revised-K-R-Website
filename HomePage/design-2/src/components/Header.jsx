@@ -44,10 +44,16 @@ function Header({ path }) {
           {siteMenu.map((link) => (
             <NavItem key={link.href} link={link} path={path} onNavigate={closeMenu} />
           ))}
-          <Button href={business.phoneLink} size="sm" onClick={closeMenu}>
-            <Icon name="phone" /> {business.phone}
-          </Button>
         </nav>
+
+        <div className="header__actions">
+          <a className="header__phone" href={business.phoneLink}>
+            <Icon name="phone" /> <span>{business.phone}</span>
+          </a>
+          <Button href="#/contact" size="sm" onClick={closeMenu}>
+            Book online
+          </Button>
+        </div>
 
         <button
           className="burger"

@@ -1,27 +1,28 @@
 import Icon from "./Icon.jsx";
 import { features } from "../data/content.js";
 
-// Image + text rows for Cooling, Heating and Commercial
+// Cooling, Heating and Commercial as three side-by-side "departments"
 function Features() {
   return (
     <section className="section">
       <div className="wrap">
-        {features.map((feature) => (
-          <article className={feature.flip ? "split split--flip" : "split"} id={feature.id} key={feature.id}>
-            <div className="split__media" data-reveal="1">
-              <img src={feature.image} alt={feature.imageAlt} loading="lazy" width="320" height="380" />
-              <div className="tag">
-                <b>{feature.number}</b> · {feature.tag}
-              </div>
-            </div>
+        <div className="section-head" data-reveal="1">
+          <span className="eyebrow">§ 01 — Departments</span>
+          <h2>
+            What we do, <em>and how well.</em>
+          </h2>
+        </div>
 
-            <div data-reveal="2">
-              <span className="eyebrow">
-                <span className="num">{feature.number}</span> {feature.eyebrow}
+        <div className="depts">
+          {features.map((feature, index) => (
+            <article className="dept" id={feature.id} data-reveal={String(index + 1)} key={feature.id}>
+              <img src={feature.image} alt={feature.imageAlt} loading="lazy" width="400" height="300" />
+              <span className="dept__tag">
+                {feature.number} · {feature.eyebrow}
               </span>
-              <h2>
+              <h3>
                 {feature.title} <em>{feature.highlight}</em>
-              </h2>
+              </h3>
               <p>{feature.text}</p>
 
               <ul className="checks">
@@ -33,9 +34,9 @@ function Features() {
               <a className="link-more" href="#contact">
                 {feature.linkText} <Icon name="arrow" size={16} />
               </a>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

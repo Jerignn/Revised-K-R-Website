@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Button from "./Button.jsx";
-import Icon from "./Icon.jsx";
 import NavItem from "./NavItem.jsx";
 import { siteMenu } from "../../../shared/pages.js";
-import logoWhite from "../../../assets/img/logo-white.png";
+import logo from "../../../assets/img/logo.png";
 
+// The masthead: the logo centred on top, the menu on its own ruled line below
 function Header({ path }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -34,19 +34,22 @@ function Header({ path }) {
 
   return (
     <header className="header">
-      <div className="wrap">
+      <div className="wrap masthead">
+        <span className="masthead__side">
+          Heating &amp; Cooling
+          <br />
+          for the Hill Country
+        </span>
+
         <a className="logo" href="#/" aria-label="K&R Heating & Cooling home">
-          <img src={logoWhite} alt="K&R Heating & Cooling logo" width="145" height="85" />
+          <img src={logo} alt="K&R Heating & Cooling logo" width="186" height="109" />
         </a>
 
-        <nav className={menuOpen ? "nav is-open" : "nav"} id="site-nav" aria-label="Main">
-          {siteMenu.map((link) => (
-            <NavItem key={link.href} link={link} path={path} onNavigate={closeMenu} />
-          ))}
-          <Button href="#/contact" size="sm" onClick={closeMenu}>
-            Book Service <Icon name="arrow" />
+        <div className="masthead__side masthead__side--end">
+          <Button href="#/contact" size="sm">
+            Book service
           </Button>
-        </nav>
+        </div>
 
         <button
           className="burger"
@@ -60,6 +63,19 @@ function Header({ path }) {
           <span></span>
           <span></span>
         </button>
+      </div>
+
+      <div className="wrap">
+        <nav className={menuOpen ? "nav is-open" : "nav"} id="site-nav" aria-label="Main">
+          {siteMenu.map((link) => (
+            <NavItem key={link.href} link={link} path={path} onNavigate={closeMenu} />
+          ))}
+          <span className="nav__book">
+            <Button href="#/contact" onClick={closeMenu}>
+              Book service
+            </Button>
+          </span>
+        </nav>
       </div>
     </header>
   );

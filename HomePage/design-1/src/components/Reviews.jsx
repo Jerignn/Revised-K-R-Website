@@ -1,33 +1,37 @@
 import { reviews } from "../data/content.js";
 
+// One review as a big pull quote, the rest in narrow columns beneath it
 function Reviews() {
+  const [lead, ...rest] = reviews;
+
   return (
-    <section className="section" id="reviews">
+    <section className="section reviews" id="reviews">
       <div className="wrap">
-        <div data-reveal="1">
-          <span className="eyebrow">Customer reviews</span>
-          <h2 className="section-title">
-            Real reviews from <em>real neighbors</em>
+        <div className="section-head" data-reveal="1">
+          <span className="eyebrow">§ 02 — Letters from neighbors</span>
+          <h2>
+            Real reviews from <em>real neighbors.</em>
           </h2>
         </div>
 
-        <div className="reviews__grid">
-          {reviews.map((review, index) => {
-            // The first review is the big rust card
-            const isBig = index === 0;
-            // Stagger the fade-in: 1, 2, 3, 2, 3
-            const delay = index === 0 ? "1" : String(((index + 1) % 2) + 2);
+        <figure className="pullquote" data-reveal="2">
+          <div className="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“{lead.text}”</blockquote>
+          <figcaption>
+            <cite>— {lead.name}</cite>
+          </figcaption>
+        </figure>
 
-            return (
-              <figure className={isBig ? "review review--big" : "review"} data-reveal={delay} key={review.name}>
-                <div className="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
-                <blockquote>“{review.text}”</blockquote>
-                <figcaption>
-                  <cite>{review.name}</cite>
-                </figcaption>
-              </figure>
-            );
-          })}
+        <div className="reviews__cols">
+          {rest.map((review, index) => (
+            <figure className="review" data-reveal={String((index % 3) + 1)} key={review.name}>
+              <div className="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>“{review.text}”</blockquote>
+              <figcaption>
+                <cite>{review.name}</cite>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>

@@ -1,13 +1,14 @@
 import { offers } from "../data/content.js";
 
+// Current deals, styled like clip-out coupons
 function Offers() {
   return (
     <section className="section offers" id="offers">
       <div className="wrap">
-        <div data-reveal="1">
-          <span className="eyebrow">Current promotions</span>
-          <h2 className="section-title">
-            Save on <em>comfort</em>
+        <div className="section-head" data-reveal="1">
+          <span className="eyebrow">§ 05 — Clip &amp; save</span>
+          <h2>
+            Save on <em>comfort.</em>
           </h2>
         </div>
 

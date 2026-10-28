@@ -1,5 +1,4 @@
 import ContactForm from "./ContactForm.jsx";
-import Icon from "./Icon.jsx";
 import { business } from "../data/content.js";
 
 function Contact() {
@@ -17,28 +16,26 @@ function Contact() {
             {business.phone}
           </a>
 
-          <ul className="info">
-            <li>
-              <Icon name="pin" />
-              <address>
-                {business.street}
-                <br />
-                {business.city}
-              </address>
-            </li>
-            <li>
-              <Icon name="clock" />
-              <span>
-                Open 24 hours
-                <br />
-                Monday – Sunday
-              </span>
-            </li>
-            <li>
-              <Icon name="shield" />
-              <span>30-day 100% satisfaction guarantee</span>
-            </li>
-          </ul>
+          <dl className="info">
+            <div>
+              <dt>Visit</dt>
+              <dd>
+                <address>
+                  {business.street}
+                  <br />
+                  {business.city}
+                </address>
+              </dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Open 24 hours, Monday – Sunday</dd>
+            </div>
+            <div>
+              <dt>Promise</dt>
+              <dd>30-day 100% satisfaction guarantee</dd>
+            </div>
+          </dl>
         </div>
 
         <ContactForm />

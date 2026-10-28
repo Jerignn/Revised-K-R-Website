@@ -20,17 +20,7 @@ export const business = {
 
 // The header and footer menu lives in shared/pages.js (siteMenu)
 
-// ---------- Scrolling words under the hero ----------
-export const marqueeWords = [
-  "Air Conditioners",
-  "Furnaces",
-  "Heat Pumps",
-  "Ductless",
-  "Commercial HVAC",
-  "It's not a gamble",
-];
-
-// ---------- Four quick links under the hero ----------
+// ---------- "In this issue" index beside the hero ----------
 export const quickTiles = [
   { number: "01", title: "Cooling", text: "AC repair, replacement & tune-ups", href: "#cooling" },
   { number: "02", title: "Heating", text: "Furnaces, heat pumps & air handlers", href: "#heating" },

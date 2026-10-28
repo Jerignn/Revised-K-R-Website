@@ -21,7 +21,6 @@ function ServicesPage() {
       </section>
 
       <MaintenancePlan />
-      <div className="spacer"></div>
       <Contact />
     </>
   );

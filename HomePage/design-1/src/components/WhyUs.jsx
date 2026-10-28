@@ -1,12 +1,13 @@
-import BadgeCarousel from "./BadgeCarousel.jsx";
+import Badges from "./Badges.jsx";
 import { stats } from "../data/content.js";
 
+// A dark band: K&R by the numbers
 function WhyUs() {
   return (
     <section className="section why" id="why">
-      <div className="wrap why__grid">
-        <div data-reveal="1">
-          <span className="eyebrow">Why K&amp;R</span>
+      <div className="wrap">
+        <div className="why__head" data-reveal="1">
+          <span className="eyebrow">§ 04 — By the numbers</span>
           <h2>
             It's not a <em>gamble.</em>
           </h2>
@@ -15,18 +16,18 @@ function WhyUs() {
             service with an unmatched client experience. We never accept past performance as good enough —
             we strive every day for new levels of excellence.
           </p>
-
-          <BadgeCarousel />
         </div>
 
-        <div className="stats" data-reveal="2">
+        <dl className="stats" data-reveal="2">
           {stats.map((stat) => (
             <div className="stat" key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
             </div>
           ))}
-        </div>
+        </dl>
+
+        <Badges />
       </div>
     </section>
   );
