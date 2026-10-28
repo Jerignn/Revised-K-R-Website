@@ -11,25 +11,25 @@ function ChooserPage() {
       <header>
         <div className="wrap">
           <img src={logo} alt="K&R Heating & Cooling" width="186" height="109" />
-          <span>K&amp;R · Website directions</span>
+          <span>K&amp;R · Homepage concepts</span>
         </div>
       </header>
 
       <main id="main" className="wrap">
         <section className="intro">
-          <span className="kicker">A fresh perspective</span>
+          <span className="kicker">Website proposal · Kerrville, TX</span>
           <h1>
-            Two fresh directions
+            Pick the K&amp;R
             <br />
-            for <span>K&amp;R.</span>
+            you'd <span>recognize.</span>
           </h1>
           <p>
-            The same trusted Kerrville comfort, expressed two ways. Explore each complete homepage and choose
-            the direction that feels right.
+            One reads like the local paper you trust; the other gets a visit booked before the coffee's
+            poured. Open each homepage, click around, and tell us which one sounds like you.
           </p>
         </section>
 
-        <div className="label">One K&amp;R. Two possibilities.</div>
+        <div className="label">Two concepts · same services, same people</div>
 
         <section className="cards" aria-label="Design directions">
           {designs.map((design) => (
@@ -39,18 +39,19 @@ function ChooserPage() {
 
         <section className="note">
           <h2>
-            Different first impressions. <span>The same K&amp;R care.</span>
+            How to <span>review them.</span>
           </h2>
           <p>
-            Each direction is a complete, responsive homepage built from K&amp;R's own services, offers and
-            customer reviews. Use the floating bar to switch designs or return here. Enquiry forms are
-            previews only; call links lead to the K&amp;R phone line, 830-792-3993.
+            Both concepts are full, working sites built from K&amp;R's real services, offers and customer
+            reviews — try them on your phone too. The floating bar at the bottom switches between them or
+            brings you back here. Forms don't send anything yet; call links ring the K&amp;R line,
+            830-792-3993.
           </p>
         </section>
 
         <footer>
-          <span>Thoughtfully prepared for K&amp;R Heating &amp; Cooling.</span>
-          <span>Two homepage concepts · October 2026 · Presentation only</span>
+          <span>Prepared for K&amp;R Heating &amp; Cooling.</span>
+          <span>Homepage concepts · October 2026 · Not yet public</span>
         </footer>
       </main>
     </>

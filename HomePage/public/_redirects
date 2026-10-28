@@ -1,0 +1,4 @@
+# Netlify: send clean page addresses to the design's index.html.
+# Real files (scripts, images) are served first, so only page addresses are rewritten.
+/design-1/*  /design-1/index.html  200
+/design-2/*  /design-2/index.html  200

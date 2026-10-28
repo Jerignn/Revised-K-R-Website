@@ -24,7 +24,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
 body.menu-open { overflow: hidden; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 .wrap { width: min(var(--wrap), 100% - 48px); margin-inline: auto; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--navy); color: #fff; padding: 10px 14px; z-index: 300; border-radius: 8px; }
