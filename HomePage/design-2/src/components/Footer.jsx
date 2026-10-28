@@ -2,7 +2,8 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logo from "../../../assets/img/logo.png";
 
-const title = "mb-3.5 text-sm/6 font-bold tracking-[0.06em] text-white uppercase";
+// Footer standard: all text is 16px on a 24px line
+const title = "mb-3.5 text-base/6 font-bold tracking-[0.06em] text-white uppercase";
 const list = "grid gap-2";
 
 function Footer() {
@@ -13,7 +14,7 @@ function Footer() {
   const singleLinks = siteMenu.filter((link) => !link.children);
 
   return (
-    <footer className="bg-navy pt-[72px] pb-[120px] leading-6 text-[#b5c3d3] [&_a]:no-underline [&_a:hover]:text-white">
+    <footer className="bg-navy pt-[72px] pb-[120px] text-base/6 text-[#b5c3d3] [&_a]:no-underline [&_a:hover]:text-white">
       <div className="wrap">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <div>
@@ -64,7 +65,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-6 text-[15px]">
+        <div className="mt-14 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-6">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
           <span>It's not a gamble.</span>
         </div>

@@ -38,7 +38,7 @@ function NavItem({ link, path, onNavigate }) {
       </a>
       <button
         className={
-          "grid h-8 w-6 cursor-pointer place-items-center text-ink max-lg:size-12 [&_svg]:size-3.5 [&_svg]:transition-transform max-lg:[&_svg]:size-[22px] " +
+          "grid h-11 w-8 cursor-pointer place-items-center text-ink max-lg:size-12 [&_svg]:size-3.5 [&_svg]:transition-transform max-lg:[&_svg]:size-[22px] " +
           (subOpen ? "[&_svg]:rotate-180" : "")
         }
         type="button"

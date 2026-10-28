@@ -7,7 +7,7 @@ import Icon from "./Icon.jsx";
 //   mobile  — opens with the small arrow button
 
 const linkClass =
-  "inline-flex min-h-10 items-center rounded-lg px-3 text-[15px] font-medium text-ink no-underline transition-colors hover:bg-surface aria-[current=page]:bg-blue-tint aria-[current=page]:text-blue max-lg:min-h-[52px] max-lg:text-lg";
+  "inline-flex min-h-11 items-center rounded-lg px-3 text-[15px] font-medium text-ink no-underline transition-colors hover:bg-surface aria-[current=page]:bg-blue-tint aria-[current=page]:text-blue max-lg:min-h-[52px] max-lg:text-lg";
 
 function NavItem({ link, path, onNavigate }) {
   const [subOpen, setSubOpen] = useState(false);
@@ -38,7 +38,7 @@ function NavItem({ link, path, onNavigate }) {
       </a>
       <button
         className={
-          "grid h-10 w-[26px] cursor-pointer place-items-center text-soft max-lg:h-[52px] max-lg:w-12 [&_svg]:size-3.5 [&_svg]:transition-transform max-lg:[&_svg]:size-5 " +
+          "grid h-11 w-8 cursor-pointer place-items-center text-soft max-lg:h-[52px] max-lg:w-12 [&_svg]:size-3.5 [&_svg]:transition-transform max-lg:[&_svg]:size-5 " +
           (subOpen ? "[&_svg]:rotate-180" : "")
         }
         type="button"

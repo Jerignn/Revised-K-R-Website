@@ -2,7 +2,8 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logoWhite from "../../../assets/img/logo-white.png";
 
-const title = "mb-3.5 font-mono text-xs/6 font-medium tracking-[0.14em] text-white uppercase";
+// Footer standard: all text is 16px on a 24px line
+const title = "mb-3.5 font-mono text-base/6 font-medium tracking-[0.08em] text-white uppercase";
 const list = "grid gap-2";
 
 function Footer() {
@@ -17,7 +18,7 @@ function Footer() {
       <div className="wrap">
         <div className="flex flex-wrap items-center justify-between gap-6 border-b-[3px] border-double border-night-hair pb-9">
           <img className="h-16 w-auto" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
-          <p className="max-w-[34ch] font-serif text-[22px]/[1.35] text-night-text">
+          <p className="max-w-[34ch] font-serif text-base/6 text-night-text">
             Locally owned &amp; operated. <em className="text-peach">Your home comfort is our #1 priority.</em>
           </p>
         </div>
@@ -65,7 +66,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-between gap-3 border-t border-night-hair pt-[22px] font-mono text-xs/6 font-medium tracking-[0.08em] uppercase">
+        <div className="flex flex-wrap justify-between gap-3 border-t border-night-hair pt-[22px] text-base/6">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
           <span>Printed in Kerrville, Texas</span>
         </div>

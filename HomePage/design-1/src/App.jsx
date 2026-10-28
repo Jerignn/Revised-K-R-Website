@@ -11,6 +11,7 @@ import PromotionsPage from "./pages/PromotionsPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import useRoute from "../../shared/useRoute.js";
+import usePageMeta from "../../shared/pageMeta.js";
 import useScrollReveal from "./hooks/useScrollReveal.js";
 
 // Every page, by its address (/design-1/about, /design-1/promotions...)
@@ -30,6 +31,7 @@ const pages = {
 function App() {
   const path = useRoute("/design-1/");
   useScrollReveal(path);
+  usePageMeta(path);
 
   let page;
   if (path.startsWith("/services/")) {

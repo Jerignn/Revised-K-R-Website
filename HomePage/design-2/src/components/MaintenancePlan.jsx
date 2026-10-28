@@ -41,9 +41,9 @@ function PlanCard({ member }) {
         {planRows.map((row) => {
           const included = member ? row.member : row.noPlan;
           return (
-            <li className={"flex items-start gap-2.5 " + (included ? "" : "text-[#93a0b0]")} key={row.text}>
+            <li className={"flex items-start gap-2.5 " + (included ? "" : "text-[#6b7686] line-through decoration-[#6b7686]/40")} key={row.text}>
               <span
-                className={"mt-px grid size-5 flex-none place-items-center rounded-full text-xs [&_svg]:size-3 " + (included ? look.yes : "bg-surface-2 text-[#93a0b0]")}
+                className={"mt-px grid size-5 flex-none place-items-center rounded-full text-xs [&_svg]:size-3 " + (included ? look.yes : "bg-surface-2 text-[#6b7686]")}
                 aria-hidden="true"
               >
                 {included ? <Icon name="check" /> : "—"}
