@@ -35,7 +35,7 @@ function ServiceDetailPage({ slug }) {
             <h2 className="mt-3.5 mb-5">
               {service.title} <em>done right.</em>
             </h2>
-            <p className="max-w-[56ch] text-[17px] text-ink-soft">{service.intro}</p>
+            <p className="max-w-[56ch] text-[19px] text-ink-soft">{service.intro}</p>
             <ul className={checks + " sm:grid-cols-2"}>
               {service.includes.map((item) => (
                 <li key={item}>{item}</li>
@@ -65,7 +65,7 @@ function ServiceDetailPage({ slug }) {
                 data-reveal={String((index % 3) + 1)}
                 key={sign}
               >
-                <span className="mb-3.5 block font-mono text-[13px]/none font-medium text-rust-dk">{String(index + 1).padStart(2, "0")}</span>
+                <span className="mb-3.5 block text-[15px]/none font-semibold text-rust-dk">{String(index + 1).padStart(2, "0")}</span>
                 {sign}
               </li>
             ))}

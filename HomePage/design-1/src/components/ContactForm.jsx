@@ -4,12 +4,12 @@ import Icon from "./Icon.jsx";
 import { business, serviceOptions } from "../data/content.js";
 
 // Underlined inputs, like filling in a printed form
-const label = "font-mono text-xs/none font-medium tracking-[0.12em] text-ink-soft uppercase";
+const label = "text-[15px]/none font-semibold tracking-[0.06em] text-ink-soft uppercase";
 const input =
-  "w-full rounded-none border-0 border-b border-ink bg-transparent py-3 font-serif text-lg/[1.4] text-ink focus:border-rust focus:shadow-[0_1px_0_var(--color-rust)] focus:outline-none";
+  "w-full rounded-none border-0 border-b border-ink bg-transparent py-3 font-serif text-xl/[1.4] text-ink focus:border-rust focus:shadow-[0_1px_0_var(--color-rust)] focus:outline-none";
 // The message box is fully outlined so it reads as a writing area
 const textarea =
-  "w-full rounded-none border border-ink bg-transparent p-3 font-serif text-lg/[1.4] text-ink focus:border-rust focus:outline-none";
+  "w-full rounded-none border border-ink bg-transparent p-3 font-serif text-xl/[1.4] text-ink focus:border-rust focus:outline-none";
 
 // Preview only: the form shows a thank-you message and sends nothing.
 function ContactForm() {
@@ -77,7 +77,7 @@ function ContactForm() {
       </Button>
 
       <p
-        className={"text-sm sm:col-span-2 " + (sent ? "border-l-[3px] border-rust bg-paper-2 px-3.5 py-2.5 text-ink" : "text-muted")}
+        className={"text-base sm:col-span-2 " + (sent ? "border-l-[3px] border-rust bg-paper-2 px-3.5 py-2.5 text-ink" : "text-muted")}
         role="status"
       >
         {message}

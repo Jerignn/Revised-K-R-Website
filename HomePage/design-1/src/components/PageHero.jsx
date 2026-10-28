@@ -9,7 +9,7 @@ function PageHero({ eyebrow, title, highlight, text, crumbs = [] }) {
   return (
     <section className="border-b-[3px] border-double border-ink pt-[clamp(48px,7vw,96px)] pb-[clamp(40px,5vw,64px)]">
       <div className="wrap">
-        <nav className="mb-[26px] font-mono text-xs/none font-medium tracking-[0.1em] text-muted uppercase [&_a]:no-underline [&_a:hover]:text-rust" aria-label="Breadcrumb">
+        <nav className="mb-[26px] text-[15px]/none font-semibold tracking-[0.06em] text-muted uppercase [&_a]:no-underline [&_a:hover]:text-rust" aria-label="Breadcrumb">
           <a href="#/">Home</a>
           {crumbs.map((crumb) => (
             <span key={crumb.href}>
@@ -23,7 +23,7 @@ function PageHero({ eyebrow, title, highlight, text, crumbs = [] }) {
         <h1 className="mt-4 mb-5 max-w-[15ch] text-[clamp(48px,7vw,104px)] leading-[0.98] tracking-[-0.03em]">
           {title} {highlight && <em>{highlight}</em>}
         </h1>
-        {text && <p className="max-w-[58ch] font-serif text-xl/[1.5] text-ink-soft">{text}</p>}
+        {text && <p className="max-w-[58ch] font-serif text-[22px]/[1.5] text-ink-soft">{text}</p>}
       </div>
     </section>
   );

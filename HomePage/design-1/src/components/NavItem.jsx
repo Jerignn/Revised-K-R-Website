@@ -7,7 +7,7 @@ import Icon from "./Icon.jsx";
 //   mobile  — opens with the small arrow button
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-[15px] font-medium text-ink no-underline underline-offset-[6px] hover:text-rust aria-[current=page]:text-rust aria-[current=page]:underline max-lg:min-h-16 max-lg:font-serif max-lg:text-[32px] max-lg:font-normal";
+  "inline-flex min-h-11 items-center text-[17px] font-medium text-ink no-underline underline-offset-[6px] hover:text-rust aria-[current=page]:text-rust aria-[current=page]:underline max-lg:min-h-16 max-lg:font-serif max-lg:text-[32px] max-lg:font-normal";
 
 function NavItem({ link, path, onNavigate }) {
   const [subOpen, setSubOpen] = useState(false);
@@ -58,7 +58,7 @@ function NavItem({ link, path, onNavigate }) {
         {link.children.map((child) => (
           <li key={child.href}>
             <a
-              className="block py-2 font-serif text-xl/[1.25] text-ink-soft no-underline hover:text-rust hover:italic aria-[current=page]:text-rust aria-[current=page]:italic lg:px-5 lg:py-2.5 lg:text-[17px] lg:text-ink"
+              className="block py-2 font-serif text-[22px]/[1.25] text-ink-soft no-underline hover:text-rust aria-[current=page]:text-rust aria-[current=page]:font-semibold lg:px-5 lg:py-2.5 lg:text-[19px] lg:text-ink"
               href={child.href}
               onClick={onNavigate}
               aria-current={path === child.href.slice(1) ? "page" : undefined}

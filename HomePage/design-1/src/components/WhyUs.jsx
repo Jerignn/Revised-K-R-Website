@@ -12,7 +12,7 @@ function WhyUs() {
           <h2>
             It's not a <em>gamble.</em>
           </h2>
-          <p className="mt-1.5 max-w-[58ch] text-lg text-night-muted">
+          <p className="mt-1.5 max-w-[58ch] text-xl text-night-muted">
             Our priority is to earn the trust of the community by delivering superior heating and cooling
             service with an unmatched client experience. We never accept past performance as good enough —
             we strive every day for new levels of excellence.
@@ -26,7 +26,7 @@ function WhyUs() {
               key={stat.label}
             >
               <dt className="font-serif text-[clamp(54px,6vw,84px)]/[0.95] tracking-[-0.03em] text-white">{stat.value}</dt>
-              <dd className="mt-2.5 text-[15px] text-night-muted">{stat.label}</dd>
+              <dd className="mt-2.5 text-[17px] text-night-muted">{stat.label}</dd>
             </div>
           ))}
         </dl>

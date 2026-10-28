@@ -4,7 +4,7 @@ import logoWhite from "../../../assets/img/logo-white.png";
 
 // Footer standard: all text is 16px on a 24px line, all spacing is 24px,
 // and every link is a block at least 24px tall (the WCAG minimum target size)
-const title = "mb-6 font-mono text-base/6 font-medium tracking-[0.08em] text-white uppercase";
+const title = "mb-6 text-lg/7 font-semibold tracking-[0.05em] text-white uppercase";
 const list = "grid gap-6 [&_a]:block [&_a]:min-h-6";
 
 function Footer() {
@@ -15,11 +15,11 @@ function Footer() {
   const singleLinks = siteMenu.filter((link) => !link.children);
 
   return (
-    <footer className="bg-night pt-[72px] pb-[120px] text-base/6 text-night-muted [&_a]:no-underline [&_a:hover]:text-peach">
+    <footer className="bg-night pt-[72px] pb-[120px] text-lg/7 text-night-muted [&_a]:no-underline [&_a:hover]:text-peach">
       <div className="wrap">
         <div className="flex flex-wrap items-center justify-between gap-6 border-b-[3px] border-double border-night-hair pb-9">
           <img className="h-16 w-auto" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
-          <p className="max-w-[34ch] font-serif text-base/6 text-night-text">
+          <p className="max-w-[34ch] font-serif text-lg/7 text-night-text">
             Locally owned &amp; operated. <em className="text-peach">Your home comfort is our #1 priority.</em>
           </p>
         </div>
@@ -67,7 +67,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-between gap-3 border-t border-night-hair pt-[22px] text-base/6">
+        <div className="flex flex-wrap justify-between gap-3 border-t border-night-hair pt-[22px] text-lg/7">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
           <span>Printed in Kerrville, Texas</span>
         </div>

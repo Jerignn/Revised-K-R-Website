@@ -1,7 +1,9 @@
 /* K&R Heating & Cooling — Design 1: Editorial
    Tailwind builds the styles from the class names in design-1/src.
    The theme below sets the colours and fonts those classes use
-   (e.g. bg-paper, text-rust, font-serif). */
+   (e.g. bg-paper, text-rust, font-serif).
+   Type is sized for older readers: body copy 18px, nothing below 15px,
+   no small italics, and labels in Inter rather than a monospace. */
 @import "tailwindcss" source(none);
 @source "../";
 
@@ -10,19 +12,18 @@
   --color-paper-2: #ebe9e3;
   --color-ink: #16150f;
   --color-ink-soft: #4b483f;
-  --color-muted: #6d695f;
+  --color-muted: #57534a;
   --color-hair: rgb(22 21 15 / 0.16);
   --color-rust: #ba4426;
   --color-rust-dk: #9c3519;
   --color-night: #16150f;
   --color-night-text: #e9e6de;
-  --color-night-muted: #a8a397;
+  --color-night-muted: #c4bfb3;
   --color-night-hair: rgb(255 255 255 / 0.14);
   --color-peach: #f0a58e;
 
   --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
   --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
   --animate-fade-up: fade-up 1s var(--ease-soft) both;
@@ -43,10 +44,10 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { background: var(--color-paper); color: var(--color-ink); font: 400 16px/1.65 var(--font-sans); -webkit-font-smoothing: antialiased; }
+  body { background: var(--color-paper); color: var(--color-ink); font: 400 18px/1.7 var(--font-sans); -webkit-font-smoothing: antialiased; }
   :focus-visible { outline: 2px solid var(--color-rust); outline-offset: 3px; }
   /* Headlines are set in the serif; words in <em> turn italic rust */
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.05; letter-spacing: -0.015em; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
   h2 { font-size: clamp(36px, 4.6vw, 60px); }
   h1 em, h2 em, h3 em { font-style: italic; color: var(--color-rust); }
   address { font-style: normal; }

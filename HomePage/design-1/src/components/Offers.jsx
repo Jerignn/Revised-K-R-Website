@@ -5,12 +5,12 @@ import { offers } from "../data/content.js";
 export function Coupon({ offer, index }) {
   return (
     <div
-      className="relative flex flex-col gap-2 border-2 border-dashed border-ink bg-paper px-6 py-7 before:absolute before:-top-[13px] before:left-[18px] before:bg-paper before:px-1.5 before:text-base/none before:content-['✂']"
+      className="relative flex flex-col gap-2 border-2 border-dashed border-ink bg-paper px-6 py-7 before:absolute before:-top-[13px] before:left-[18px] before:bg-paper before:px-1.5 before:text-lg/none before:content-['✂']"
       data-reveal={String((index % 3) + 1)}
     >
       <strong className="font-serif text-[60px]/[0.95] font-normal tracking-[-0.03em] text-rust">{offer.price}</strong>
       <h3 className="text-2xl">{offer.title}</h3>
-      <p className="text-[15px] text-ink-soft">{offer.text}</p>
+      <p className="text-[17px] text-ink-soft">{offer.text}</p>
     </div>
   );
 }

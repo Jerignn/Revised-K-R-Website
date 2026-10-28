@@ -20,7 +20,7 @@ function Features() {
               key={feature.id}
             >
               <img className="mb-5 aspect-[4/3] w-full object-cover" src={feature.image} alt={feature.imageAlt} loading="lazy" width="400" height="300" />
-              <span className="font-mono text-xs/[1.4] font-medium tracking-[0.1em] text-rust-dk uppercase">
+              <span className="text-[15px]/[1.4] font-semibold tracking-[0.06em] text-rust-dk uppercase">
                 {feature.number} · {feature.eyebrow}
               </span>
               <h3 className="mt-2.5 mb-3.5 text-[clamp(28px,2.6vw,36px)]">
@@ -35,7 +35,7 @@ function Features() {
               </ul>
 
               <a
-                className="mt-auto inline-flex min-h-11 items-center gap-2 self-start text-[15px] font-semibold text-ink underline decoration-1 underline-offset-[6px] transition-all hover:gap-3 hover:text-rust"
+                className="mt-auto inline-flex min-h-11 items-center gap-2 self-start text-[17px] font-semibold text-ink underline decoration-1 underline-offset-[6px] transition-all hover:gap-3 hover:text-rust"
                 href="#contact"
               >
                 {feature.linkText} <Icon name="arrow" size={16} />

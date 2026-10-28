@@ -5,19 +5,19 @@
 export const section = "py-[clamp(72px,9vw,120px)]";
 
 // Intro paragraph under a headline
-export const lede = "max-w-[58ch] text-lg text-ink-soft";
+export const lede = "max-w-[58ch] text-xl text-ink-soft";
 
 // Small print under offers and financing
-export const fine = "mt-[22px] text-sm text-muted";
+export const fine = "mt-[22px] text-base text-muted";
 
 // A ✓ list with dotted rules between items
-export const checks = "mt-5 grid gap-x-6 [&>li]:relative [&>li]:border-b [&>li]:border-dotted [&>li]:border-hair [&>li]:py-[9px] [&>li]:pl-[22px] [&>li]:text-[15px] [&>li]:before:absolute [&>li]:before:left-0 [&>li]:before:font-semibold [&>li]:before:text-rust [&>li]:before:content-['✓']";
+export const checks = "mt-5 grid gap-x-6 [&>li]:relative [&>li]:border-b [&>li]:border-dotted [&>li]:border-hair [&>li]:py-[9px] [&>li]:pl-[22px] [&>li]:text-[17px] [&>li]:before:absolute [&>li]:before:left-0 [&>li]:before:font-semibold [&>li]:before:text-rust [&>li]:before:content-['✓']";
 
 // The small uppercase monospace label above headlines.
 // light: true on the dark band, where rust turns peach
 export function Eyebrow({ children, light = false, className = "" }) {
   return (
-    <span className={"inline-block font-mono text-xs/[1.4] font-medium tracking-[0.12em] uppercase " + (light ? "text-peach " : "text-rust-dk ") + className}>
+    <span className={"inline-block text-[15px]/[1.4] font-semibold tracking-[0.06em] uppercase " + (light ? "text-peach " : "text-rust-dk ") + className}>
       {children}
     </span>
   );

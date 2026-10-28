@@ -40,7 +40,7 @@ function Header({ path }) {
   return (
     <header className="border-b border-ink bg-paper">
       <div className="wrap grid grid-cols-[1fr_auto] items-center gap-6 py-3 lg:grid-cols-[1fr_auto_1fr] lg:py-[18px]">
-        <span className="font-serif text-base/[1.3] text-ink-soft italic max-lg:hidden">
+        <span className="font-serif text-lg/[1.3] text-ink-soft max-lg:hidden">
           Heating &amp; Cooling
           <br />
           for the Hill Country

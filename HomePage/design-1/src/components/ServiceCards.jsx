@@ -19,7 +19,7 @@ function ServiceCards({ skip }) {
           <div className="flex flex-1 flex-col gap-2 pt-[18px]">
             <h3 className="text-[30px] transition-colors group-hover:text-rust group-hover:italic">{service.title}</h3>
             <p className="text-ink-soft">{service.short}</p>
-            <span className="mt-auto inline-flex items-center gap-2 pt-3 text-[15px] font-semibold underline underline-offset-[6px] [&_svg]:size-4 [&_svg]:transition-transform group-hover:[&_svg]:translate-x-1">
+            <span className="mt-auto inline-flex items-center gap-2 pt-3 text-[17px] font-semibold underline underline-offset-[6px] [&_svg]:size-4 [&_svg]:transition-transform group-hover:[&_svg]:translate-x-1">
               Learn more <Icon name="arrow" />
             </span>
           </div>

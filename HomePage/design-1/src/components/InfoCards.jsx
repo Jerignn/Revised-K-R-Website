@@ -5,9 +5,9 @@ function InfoCards({ items }) {
     <div className="mt-11 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item, index) => (
         <div className="flex flex-col gap-2 border-t-2 border-ink pt-[18px]" data-reveal={String((index % 3) + 1)} key={item.title}>
-          <span className="font-mono text-[13px]/none font-medium text-rust-dk">{String(index + 1).padStart(2, "0")}</span>
+          <span className="text-[15px]/none font-semibold text-rust-dk">{String(index + 1).padStart(2, "0")}</span>
           <h3 className="text-2xl">{item.title}</h3>
-          <p className="text-[15px] text-ink-soft">{item.text}</p>
+          <p className="text-[17px] text-ink-soft">{item.text}</p>
         </div>
       ))}
     </div>

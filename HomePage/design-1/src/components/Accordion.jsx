@@ -31,7 +31,7 @@ function Accordion({ items, firstOpen = false }) {
               aria-expanded={isOpen}
               onClick={() => handleClick(index)}
             >
-              <span className="font-mono text-[13px]/none font-medium text-rust-dk">{number}</span>
+              <span className="text-[15px]/none font-semibold text-rust-dk">{number}</span>
               <span className={"font-serif text-[22px]/[1.3] transition-colors group-hover:text-rust " + (isOpen ? "italic" : "")}>{item.title}</span>
               <span className={"grid place-items-center transition-transform duration-300 [&_svg]:size-[18px] " + (isOpen ? "rotate-45 text-rust" : "")}>
                 <Icon name="plus" />
@@ -46,7 +46,7 @@ function Accordion({ items, firstOpen = false }) {
                   {item.list && (
                     <ul className="mt-2.5 sm:col-start-2">
                       {item.list.map((point) => (
-                        <li className="border-b border-dotted border-hair py-1.5 text-[15px]" key={point}>
+                        <li className="border-b border-dotted border-hair py-1.5 text-[17px]" key={point}>
                           {point}
                         </li>
                       ))}

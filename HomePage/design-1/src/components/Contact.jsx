@@ -39,7 +39,7 @@ function Contact() {
           <dl className="mt-8 border-t border-hair">
             {details.map((detail) => (
               <div className="grid gap-1 border-b border-hair py-3.5 sm:grid-cols-[110px_1fr] sm:gap-4" key={detail.label}>
-                <dt className="font-mono text-xs/[1.9] font-medium tracking-[0.12em] text-muted uppercase">{detail.label}</dt>
+                <dt className="text-[15px]/[1.9] font-semibold tracking-[0.06em] text-muted uppercase">{detail.label}</dt>
                 <dd>{detail.value}</dd>
               </div>
             ))}

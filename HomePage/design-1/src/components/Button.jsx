@@ -11,9 +11,9 @@ const base =
   "inline-flex cursor-pointer items-center justify-center gap-2.5 border border-ink font-semibold no-underline transition-colors active:translate-y-px [&_svg]:size-4 [&_svg]:transition-transform hover:[&_svg]:translate-x-[3px]";
 
 const sizes = {
-  sm: "min-h-11 px-[18px] text-sm",
-  md: "min-h-12 px-6 text-[15px]",
-  lg: "min-h-14 px-[30px] text-base",
+  sm: "min-h-11 px-[18px] text-base",
+  md: "min-h-12 px-6 text-[17px]",
+  lg: "min-h-14 px-[30px] text-lg",
 };
 
 const variants = {

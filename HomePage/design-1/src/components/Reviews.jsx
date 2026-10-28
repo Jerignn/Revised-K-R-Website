@@ -1,8 +1,8 @@
 import SectionHead, { section } from "./ui.jsx";
 import { reviews } from "../data/content.js";
 
-const stars = "tracking-[4px] text-[15px] text-rust";
-const cite = "font-mono text-xs/none font-medium tracking-[0.12em] text-ink-soft uppercase not-italic";
+const stars = "tracking-[4px] text-[17px] text-rust";
+const cite = "text-[15px]/none font-semibold tracking-[0.06em] text-ink-soft uppercase not-italic";
 
 // One review as a big pull quote, the rest in narrow columns beneath it
 function Reviews() {
@@ -21,7 +21,7 @@ function Reviews() {
             “{lead.text}”
           </blockquote>
           <figcaption>
-            <cite className={cite + " text-[13px]"}>— {lead.name}</cite>
+            <cite className={cite}>— {lead.name}</cite>
           </figcaption>
         </figure>
 
@@ -33,7 +33,7 @@ function Reviews() {
               key={review.name}
             >
               <div className={stars} role="img" aria-label="5 out of 5 stars">★★★★★</div>
-              <blockquote className="font-serif text-lg/[1.45]">“{review.text}”</blockquote>
+              <blockquote className="font-serif text-xl/[1.45]">“{review.text}”</blockquote>
               <figcaption className="mt-auto">
                 <cite className={cite}>{review.name}</cite>
               </figcaption>
