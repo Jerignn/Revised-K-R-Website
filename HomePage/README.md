@@ -39,3 +39,13 @@ Always use `<Button>` so sizes stay standard:
 
 In each `design-*/index.html`, change `robots` to `index, follow` and add a
 `<link rel="canonical">` with the real domain.
+
+## Page addresses
+
+Pages have clean addresses: `/design-1/`, `/design-1/about`,
+`/design-1/services/furnaces`. Inside the code, page links are written as
+`#/about` and the router in `shared/useRoute.js` turns them into clean ones.
+
+The built site must sit at the root of a domain, and the host must send any
+unknown `/design-1/...` or `/design-2/...` address to that design's
+`index.html` (`npm run dev` and `npm run preview` already do this).

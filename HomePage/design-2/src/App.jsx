@@ -13,7 +13,7 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import useRoute from "../../shared/useRoute.js";
 import useScrollReveal from "./hooks/useScrollReveal.js";
 
-// Every page, by its address (index.html#/about, index.html#/promotions...)
+// Every page, by its address (/design-2/about, /design-2/promotions...)
 const pages = {
   "/": HomePage,
   "/services": ServicesPage,
@@ -28,12 +28,12 @@ const pages = {
 
 // App is the top of the component tree: it picks the page for the current address.
 function App() {
-  const path = useRoute();
+  const path = useRoute("/design-2/");
   useScrollReveal(path);
 
   let page;
   if (path.startsWith("/services/")) {
-    // One page per service, e.g. #/services/furnaces
+    // One page per service, e.g. /design-2/services/furnaces
     page = <ServiceDetailPage slug={path.slice("/services/".length)} />;
   } else {
     const Page = pages[path] || NotFoundPage;
