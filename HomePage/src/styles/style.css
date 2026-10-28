@@ -1,81 +1,40 @@
-/* Design chooser page */
-:root {
-  --bg: #f3efe8;
-  --card: #fff;
-  --ink: #1d1c1a;
-  --soft: #5f5a53;
-  --line: #e1d9cd;
-  --rust: #ba4426;
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+/* Design chooser page
+   Tailwind builds the styles from the class names in src/. */
+@import "tailwindcss" source(none);
+@source "../";
+
+@theme {
+  --color-sand: #f3efe8;
+  --color-ink: #1d1c1a;
+  --color-soft: #5f5a53;
+  --color-line: #e1d9cd;
+  --color-rust: #ba4426;
+
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", sans-serif;
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-card-in: card-in 0.9s var(--ease-soft) both;
+
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(30px); }
+  }
 }
-*, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
-img { max-width: 100%; display: block; }
-.wrap { width: min(1180px, 100% - 48px); margin-inline: auto; }
-.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 10px 14px; }
-.skip:focus { left: 8px; }
-:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
 
-header { padding-block: 26px; border-bottom: 1px solid var(--line); }
-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-header img { height: 58px; width: auto; }
-header span { font: 700 12px/1 "DM Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); }
-
-.intro { padding-block: clamp(60px, 9vw, 110px) clamp(40px, 6vw, 70px); }
-.kicker { font: 700 13px/1 "DM Sans", sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); }
-h1 { font: 700 clamp(48px, 7.4vw, 104px)/0.95 "Bricolage Grotesque", sans-serif; letter-spacing: -0.045em; margin: 22px 0 26px; }
-h1 span { color: var(--rust); }
-.intro p { font-size: 20px; color: var(--soft); max-width: 56ch; margin: 0; }
-
-.label { display: flex; align-items: center; gap: 16px; font: 700 12px/1 "DM Sans", sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); margin-bottom: 26px; }
-.label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
-.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding-bottom: clamp(70px, 9vw, 110px); }
-.card {
-  display: flex; flex-direction: column; text-decoration: none; background: var(--card); border-radius: 26px; overflow: hidden;
-  border: 1px solid var(--line); box-shadow: 0 30px 60px -40px rgba(60, 30, 10, 0.35);
-  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
-  opacity: 0; transform: translateY(30px); animation: in 0.9s var(--ease) forwards;
+/* The page width: 1180px max, with a gutter on each side */
+@utility wrap {
+  width: min(1180px, 100% - 48px);
+  margin-inline: auto;
+  @media (width < 33rem) {
+    width: calc(100% - 32px);
+  }
 }
-.card:nth-child(2) { animation-delay: 0.12s; }
-@keyframes in { to { opacity: 1; transform: none; } }
-.card:hover { transform: translateY(-8px); box-shadow: 0 40px 70px -40px rgba(60, 30, 10, 0.5); }
-.card__shot { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #111; }
-.card--light .card__shot { background: #f7f2ea; }
-.card__shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.4s var(--ease), object-position 4s var(--ease); }
-.card:hover .card__shot img { transform: scale(1.03); object-position: center 30%; }
-.card__tag { position: absolute; left: 18px; top: 18px; padding: 8px 14px; border-radius: 999px; font: 700 12px/1 "DM Sans", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; background: rgba(0, 0, 0, 0.75); color: #fff; backdrop-filter: blur(6px); }
-.card--light .card__tag { background: rgba(255, 255, 255, 0.85); color: var(--ink); }
-.card__body { padding: 30px 32px 34px; display: flex; flex-direction: column; flex: 1; }
-.card__meta { font: 700 12px/1 "DM Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rust); }
-.card h2 { font: 700 clamp(32px, 3.4vw, 44px)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.03em; margin: 14px 0 14px; }
-.card p { margin: 0 0 18px; color: var(--soft); }
-.swatches { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--soft); margin-bottom: 26px; }
-.swatches i { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.12); }
-.card__cta { position: relative; align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--rust); padding-bottom: 4px; }
-.card__cta::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
-.card:hover .card__cta::after { transform: scaleX(1); }
-.card:active { transform: translateY(-4px) scale(0.99); transition-duration: 0.15s; }
-.card__cta svg { width: 18px; height: 18px; transition: transform 0.3s var(--ease); }
-.card:hover .card__cta svg { transform: translate(3px, -3px); }
 
-.note { border-top: 1px solid var(--line); padding-block: clamp(50px, 7vw, 80px); }
-.note h2 { font: 700 clamp(26px, 3vw, 36px)/1.1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin: 0 0 16px; }
-.note h2 span { color: var(--rust); }
-.note p { margin: 0; max-width: 70ch; color: var(--soft); }
-footer { padding-block: 30px 40px; font-size: 14px; color: var(--soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+@layer base {
+  body { background: var(--color-sand); color: var(--color-ink); font: 400 17px/1.6 var(--font-sans); -webkit-font-smoothing: antialiased; }
+  :focus-visible { outline: 3px solid var(--color-rust); outline-offset: 4px; }
+}
 
-@media (max-width: 820px) {
-  .cards { grid-template-columns: 1fr; }
-}
-@media (max-width: 520px) {
-  .wrap { width: calc(100% - 32px); }
-  header span { display: none; }
-  .card__body { padding: 24px 22px 28px; }
-}
 @media (prefers-reduced-motion: reduce) {
-  .card { animation: none; opacity: 1; transform: none; }
-  * { transition: none !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
-  

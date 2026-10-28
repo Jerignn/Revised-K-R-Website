@@ -1,13 +1,13 @@
-// A row of simple text cards: [{ title, text }]
+// A row of numbered notes: [{ title, text }]
 // Used for the About values and the Financing benefits.
 function InfoCards({ items }) {
   return (
-    <div className="offers__grid">
+    <div className="mt-11 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item, index) => (
-        <div className="offer" data-reveal={String((index % 3) + 1)} key={item.title}>
-          <span className="offer__n">{String(index + 1).padStart(2, "0")}</span>
-          <h3>{item.title}</h3>
-          <p>{item.text}</p>
+        <div className="flex flex-col gap-2 border-t-2 border-ink pt-[18px]" data-reveal={String((index % 3) + 1)} key={item.title}>
+          <span className="font-mono text-[13px]/none font-medium text-rust-dk">{String(index + 1).padStart(2, "0")}</span>
+          <h3 className="text-2xl">{item.title}</h3>
+          <p className="text-[15px] text-ink-soft">{item.text}</p>
         </div>
       ))}
     </div>

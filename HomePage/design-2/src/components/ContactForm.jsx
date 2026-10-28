@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "./Button.jsx";
 import Icon from "./Icon.jsx";
+import { field, honeypot, input, label, noteClass } from "./formStyles.js";
 import { business, serviceOptions } from "../data/content.js";
 
 // Preview only: the form shows a thank-you message and sends nothing.
@@ -29,20 +30,25 @@ function ContactForm() {
   }
 
   return (
-    <form className="form" data-reveal="2" noValidate onSubmit={handleSubmit}>
-      <div className="field">
-        <label htmlFor="d2-name">Name *</label>
-        <input id="d2-name" name="name" autoComplete="name" required />
+    <form
+      className="grid gap-4 rounded-[20px] border border-line bg-white p-[clamp(24px,3vw,36px)] shadow-card sm:grid-cols-2"
+      data-reveal="2"
+      noValidate
+      onSubmit={handleSubmit}
+    >
+      <div className={field}>
+        <label className={label} htmlFor="d2-name">Name *</label>
+        <input className={input} id="d2-name" name="name" autoComplete="name" required />
       </div>
 
-      <div className="field">
-        <label htmlFor="d2-phone">Phone *</label>
-        <input id="d2-phone" name="phone" type="tel" autoComplete="tel" required />
+      <div className={field}>
+        <label className={label} htmlFor="d2-phone">Phone *</label>
+        <input className={input} id="d2-phone" name="phone" type="tel" autoComplete="tel" required />
       </div>
 
-      <div className="field">
-        <label htmlFor="d2-svc">Service *</label>
-        <select id="d2-svc" name="service" required>
+      <div className={field}>
+        <label className={label} htmlFor="d2-svc">Service *</label>
+        <select className={input} id="d2-svc" name="service" required>
           <option value="">Select a service</option>
           {serviceOptions.map((option) => (
             <option key={option}>{option}</option>
@@ -50,23 +56,23 @@ function ContactForm() {
         </select>
       </div>
 
-      <div className="field">
-        <label htmlFor="d2-zip">ZIP code *</label>
-        <input id="d2-zip" name="zip" inputMode="numeric" autoComplete="postal-code" required />
+      <div className={field}>
+        <label className={label} htmlFor="d2-zip">ZIP code *</label>
+        <input className={input} id="d2-zip" name="zip" inputMode="numeric" autoComplete="postal-code" required />
       </div>
 
-      <div className="field field--full">
-        <label htmlFor="d2-msg">How can we help?</label>
-        <textarea id="d2-msg" name="message" rows="3"></textarea>
+      <div className={field + " sm:col-span-2"}>
+        <label className={label} htmlFor="d2-msg">How can we help?</label>
+        <textarea className={input} id="d2-msg" name="message" rows="3"></textarea>
       </div>
 
-      <input className="hp" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" />
+      <input className={honeypot} name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" />
 
-      <Button type="submit" size="lg">
+      <Button type="submit" size="lg" className="sm:col-span-2">
         Request service <Icon name="arrow" />
       </Button>
 
-      <p className={sent ? "form-note is-shown" : "form-note"} role="status">
+      <p className={noteClass(sent) + " sm:col-span-2"} role="status">
         {message}
       </p>
     </form>

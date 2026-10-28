@@ -3,6 +3,7 @@ import InfoCards from "../components/InfoCards.jsx";
 import Button from "../components/Button.jsx";
 import Icon from "../components/Icon.jsx";
 import Contact from "../components/Contact.jsx";
+import { Kicker, fine, section } from "../components/ui.jsx";
 import { business } from "../data/content.js";
 import { financingPoints } from "../../../shared/pages.js";
 
@@ -18,16 +19,16 @@ function FinancingPage() {
         crumbs={[{ label: "About Us", href: "#/about" }, { label: "Financing", href: "#/about/financing" }]}
       />
 
-      <section className="section">
+      <section className={section}>
         <div className="wrap">
           <div data-reveal="1">
-            <span className="kicker">Why finance with K&amp;R</span>
-            <h2 className="page-title">
-              Comfort now, <span className="hl">pay over time.</span>
+            <Kicker>Why finance with K&amp;R</Kicker>
+            <h2>
+              Comfort now, <span className="text-blue">pay over time.</span>
             </h2>
           </div>
           <InfoCards items={financingPoints} />
-          <div className="hero__cta page-cta">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button href="#contact">
               Ask about financing <Icon name="arrow" />
             </Button>
@@ -35,7 +36,7 @@ function FinancingPage() {
               <Icon name="phone" /> {business.phone}
             </Button>
           </div>
-          <p className="fine">Financing available on new systems for qualified buyers. Call for details.</p>
+          <p className={fine}>Financing available on new systems for qualified buyers. Call for details.</p>
         </div>
       </section>
 

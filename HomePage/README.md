@@ -27,7 +27,8 @@ design-1/  design-2/    One React app per design:
   src/components/       One file per section (Header, Hero, Footer...) + Button, Icon
   src/data/content.js   All text and images — edit content here
   src/hooks/            useScrollReveal (fade-in on scroll)
-  src/styles/style.css  The design's styles
+  src/styles/style.css  Tailwind entry: the design's theme (colours, fonts)
+  src/components/ui.jsx Shared pieces (section heading, labels, class lists)
 ```
 
 ## Buttons
@@ -49,3 +50,16 @@ Pages have clean addresses: `/design-1/`, `/design-1/about`,
 The built site must sit at the root of a domain, and the host must send any
 unknown `/design-1/...` or `/design-2/...` address to that design's
 `index.html` (`npm run dev` and `npm run preview` already do this).
+
+## Styling (Tailwind CSS v4)
+
+Styles are Tailwind classes written directly in the components. Each app
+(chooser, design-1, design-2) has its own `style.css` with a `@theme` block,
+so the same class name means that design's colour or font: `bg-paper` and
+`font-serif` in Design 1, `bg-navy` and `text-blue` in Design 2.
+
+- Change a colour or font for a whole design: edit its `@theme` block.
+- Repeated patterns (section heading, eyebrow label, card) live in
+  `src/components/ui.jsx`; reuse those instead of copying class lists.
+- Don't pass a class that sets the same property as one already on the
+  element (e.g. a second text colour); use a prop like `light` instead.

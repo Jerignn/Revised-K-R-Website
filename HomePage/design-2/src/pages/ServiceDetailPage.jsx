@@ -4,6 +4,7 @@ import Button from "../components/Button.jsx";
 import Icon from "../components/Icon.jsx";
 import Contact from "../components/Contact.jsx";
 import NotFoundPage from "./NotFoundPage.jsx";
+import { Kicker, section } from "../components/ui.jsx";
 import { business } from "../data/content.js";
 import { findServicePage } from "../../../shared/pages.js";
 
@@ -23,46 +24,46 @@ function ServiceDetailPage({ slug }) {
         crumbs={[{ label: "Our Services", href: "#/services" }]}
       />
 
-      <section className="section">
-        <div className="wrap">
-          <div className="panel" data-reveal="1">
-            <img src={service.image} alt={service.imageAlt} loading="lazy" />
-            <div className="panel__body">
-              <span className="kicker">What we do</span>
-              <h2 className="panel__title">
-                {service.title}, <span className="hl">done right.</span>
-              </h2>
-              <p>{service.intro}</p>
-              <ul className="pills">
-                {service.includes.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="hero__cta">
-                <Button href="#contact">
-                  Book service <Icon name="arrow" />
-                </Button>
-                <Button href={business.phoneLink} variant="light">
-                  <Icon name="phone" /> {business.phone}
-                </Button>
-              </div>
+      <section className={section}>
+        <div className="wrap grid items-center gap-[clamp(32px,5vw,64px)] lg:grid-cols-2" data-reveal="1">
+          <img className="aspect-[4/3.2] w-full rounded-[20px] object-cover" src={service.image} alt={service.imageAlt} loading="lazy" />
+          <div className="flex flex-col items-start gap-4">
+            <Kicker>What we do</Kicker>
+            <h2 className="text-[clamp(30px,3.4vw,42px)]">
+              {service.title}, <span className="text-blue">done right.</span>
+            </h2>
+            <p className="text-[17px] text-soft">{service.intro}</p>
+            <ul className="flex flex-wrap gap-2">
+              {service.includes.map((item) => (
+                <li className="rounded-full bg-blue-tint px-3.5 py-2 text-sm font-semibold text-blue" key={item}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <Button href="#contact">
+                Book service <Icon name="arrow" />
+              </Button>
+              <Button href={business.phoneLink} variant="light">
+                <Icon name="phone" /> {business.phone}
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section section--flush">
+      <section className={section + " pt-0"}>
         <div className="wrap">
           <div data-reveal="1">
-            <span className="kicker">Time to call?</span>
-            <h2 className="page-title">
-              Signs you need <span className="hl">service.</span>
+            <Kicker>Time to call?</Kicker>
+            <h2>
+              Signs you need <span className="text-blue">service.</span>
             </h2>
           </div>
-          <ol className="signs">
+          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {service.signs.map((sign, index) => (
-              <li data-reveal={String((index % 3) + 1)} key={sign}>
-                <span className="n">{String(index + 1).padStart(2, "0")}</span>
+              <li className="rounded-2xl bg-surface p-6 text-lg/[1.35] font-semibold" data-reveal={String((index % 3) + 1)} key={sign}>
+                <span className="mb-3 block text-[13px] font-bold text-blue">{String(index + 1).padStart(2, "0")}</span>
                 {sign}
               </li>
             ))}
@@ -70,12 +71,12 @@ function ServiceDetailPage({ slug }) {
         </div>
       </section>
 
-      <section className="section section--flush">
+      <section className={section + " pt-0"}>
         <div className="wrap">
-          <div data-reveal="1">
-            <span className="kicker">More services</span>
-            <h2 className="page-title">
-              We can also <span className="hl">help with.</span>
+          <div className="mb-10" data-reveal="1">
+            <Kicker>More services</Kicker>
+            <h2>
+              We can also <span className="text-blue">help with.</span>
             </h2>
           </div>
           <ServiceCards skip={service.slug} />

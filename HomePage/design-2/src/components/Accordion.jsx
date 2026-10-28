@@ -18,22 +18,33 @@ function Accordion({ items, firstOpen = false }) {
   }
 
   return (
-    <div className="acc">
+    <div className="grid gap-2.5">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
 
         return (
-          <div className={isOpen ? "acc__item is-open" : "acc__item"} key={item.title}>
-            <button className="acc__btn" type="button" aria-expanded={isOpen} onClick={() => handleClick(index)}>
+          <div className={"rounded-[14px] border bg-white transition " + (isOpen ? "border-blue shadow-card" : "border-line")} key={item.title}>
+            <button
+              className="flex w-full cursor-pointer items-center justify-between gap-4 px-[22px] py-5 text-left text-[17px]/[1.4] font-semibold text-ink"
+              type="button"
+              aria-expanded={isOpen}
+              onClick={() => handleClick(index)}
+            >
               {item.title}
-              <span className="ic">
+              <span
+                className={
+                  "grid size-8 flex-none place-items-center rounded-full transition duration-300 [&_svg]:size-4 " +
+                  (isOpen ? "rotate-45 bg-blue text-white" : "bg-surface")
+                }
+              >
                 <Icon name="plus" />
               </span>
             </button>
 
-            <div className="acc__panel">
-              <div className="acc__inner">
-                <p>{item.text}</p>
+            {/* Animates open by growing the grid row from 0 to its natural height */}
+            <div className={"grid transition-[grid-template-rows] duration-350 ease-soft " + (isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
+              <div className="overflow-hidden">
+                <p className="px-[22px] pb-[22px] text-soft">{item.text}</p>
               </div>
             </div>
           </div>

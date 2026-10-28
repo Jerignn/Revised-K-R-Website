@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -33,7 +34,7 @@ export default defineConfig({
   // /design-1/services/furnaces still find the scripts and images.
   // The built site must be hosted at the root of a domain.
   base: "/",
-  plugins: [react(), designPages()],
+  plugins: [react(), tailwindcss(), designPages()],
   build: {
     rolldownOptions: {
       // One entry per page: the design chooser plus the two React homepages

@@ -8,7 +8,9 @@ import DesignSwitcher from "./DesignSwitcher.jsx";
 function Layout({ path, children }) {
   return (
     <>
-      <a className="skip" href="#main">Skip to content</a>
+      <a className="sr-only z-[300] bg-ink px-3.5 py-2.5 text-white focus:not-sr-only focus:absolute focus:top-2 focus:left-2" href="#main">
+        Skip to content
+      </a>
       <TopBar />
       <Header path={path} />
       <main id="main">{children}</main>

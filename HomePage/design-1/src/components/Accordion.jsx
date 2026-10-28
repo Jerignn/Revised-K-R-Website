@@ -18,29 +18,37 @@ function Accordion({ items, firstOpen = false }) {
   }
 
   return (
-    <div className="acc">
+    <div className="border-t-2 border-ink">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const number = String(index + 1).padStart(2, "0");
 
         return (
-          <div className={isOpen ? "acc__item is-open" : "acc__item"} key={item.title}>
-            <button className="acc__btn" type="button" aria-expanded={isOpen} onClick={() => handleClick(index)}>
-              <span className="n">{number}</span>
-              <span className="t">{item.title}</span>
-              <span className="ic">
+          <div className="border-b border-hair" key={item.title}>
+            <button
+              className="group grid w-full cursor-pointer grid-cols-[36px_1fr_28px] items-baseline gap-3 py-[22px] text-left text-ink sm:grid-cols-[48px_1fr_32px]"
+              type="button"
+              aria-expanded={isOpen}
+              onClick={() => handleClick(index)}
+            >
+              <span className="font-mono text-[13px]/none font-medium text-rust-dk">{number}</span>
+              <span className={"font-serif text-[22px]/[1.3] transition-colors group-hover:text-rust " + (isOpen ? "italic" : "")}>{item.title}</span>
+              <span className={"grid place-items-center transition-transform duration-300 [&_svg]:size-[18px] " + (isOpen ? "rotate-45 text-rust" : "")}>
                 <Icon name="plus" />
               </span>
             </button>
 
-            <div className="acc__panel">
-              <div className="acc__inner">
-                <div className="acc__body">
-                  <p>{item.text}</p>
+            {/* Animates open by growing the grid row from 0 to its natural height */}
+            <div className={"grid transition-[grid-template-rows] duration-400 ease-soft " + (isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
+              <div className="overflow-hidden">
+                <div className="pb-[26px] sm:grid sm:grid-cols-[48px_1fr] sm:gap-3 sm:pr-8">
+                  <p className="text-ink-soft sm:col-start-2">{item.text}</p>
                   {item.list && (
-                    <ul>
+                    <ul className="mt-2.5 sm:col-start-2">
                       {item.list.map((point) => (
-                        <li key={point}>{point}</li>
+                        <li className="border-b border-dotted border-hair py-1.5 text-[15px]" key={point}>
+                          {point}
+                        </li>
                       ))}
                     </ul>
                   )}

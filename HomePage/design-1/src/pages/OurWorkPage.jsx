@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero.jsx";
 import ProjectGallery from "../components/ProjectGallery.jsx";
 import Contact from "../components/Contact.jsx";
+import { section } from "../components/ui.jsx";
 
 // Our Work — a gallery of recent jobs
 function OurWorkPage() {
@@ -13,7 +14,7 @@ function OurWorkPage() {
         text="A look at some of the installs, replacements and upgrades our team has completed around the Hill Country."
       />
 
-      <section className="section">
+      <section className={section}>
         <div className="wrap">
           <ProjectGallery />
         </div>

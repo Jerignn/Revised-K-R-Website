@@ -2,6 +2,9 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logo from "../../../assets/img/logo.png";
 
+const title = "mb-3.5 text-sm/6 font-bold tracking-[0.06em] text-white uppercase";
+const list = "grid gap-2";
+
 function Footer() {
   const year = new Date().getFullYear();
 
@@ -10,20 +13,21 @@ function Footer() {
   const singleLinks = siteMenu.filter((link) => !link.children);
 
   return (
-    <footer className="footer">
+    <footer className="bg-navy pt-[72px] pb-[120px] leading-6 text-[#b5c3d3] [&_a]:no-underline [&_a:hover]:text-white">
       <div className="wrap">
-        <div className="footer__grid">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <div>
-            <img className="footer__logo" src={logo} alt="K&R Heating & Cooling" width="186" height="109" loading="lazy" />
-            <p className="footer__about">Locally owned &amp; operated. Your home comfort is our #1 priority.</p>
+            {/* The logo is dark, so it sits on a white tile */}
+            <img className="mb-4 box-content h-16 w-auto rounded-xl bg-white px-3.5 py-2.5" src={logo} alt="K&R Heating & Cooling" width="186" height="109" loading="lazy" />
+            <p className="max-w-[32ch]">Locally owned &amp; operated. Your home comfort is our #1 priority.</p>
           </div>
 
           {menusWithPages.map((menu) => (
             <div key={menu.href}>
-              <h2 className="footer__title">
+              <h2 className={title}>
                 <a href={menu.href}>{menu.label}</a>
               </h2>
-              <ul>
+              <ul className={list}>
                 {menu.children.map((child) => (
                   <li key={child.href}>
                     <a href={child.href}>{child.label}</a>
@@ -34,8 +38,8 @@ function Footer() {
           ))}
 
           <div>
-            <h2 className="footer__title">Company</h2>
-            <ul>
+            <h2 className={title}>Company</h2>
+            <ul className={list}>
               {singleLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href}>{link.label}</a>
@@ -45,8 +49,8 @@ function Footer() {
           </div>
 
           <div>
-            <h2 className="footer__title">Visit</h2>
-            <ul>
+            <h2 className={title}>Visit</h2>
+            <ul className={list}>
               <li><a href={business.phoneLink}>{business.phone}</a></li>
               <li>
                 <address>
@@ -60,7 +64,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="footer__base">
+        <div className="mt-14 flex flex-wrap justify-between gap-3 border-t border-white/12 pt-6 text-[15px]">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
           <span>It's not a gamble.</span>
         </div>

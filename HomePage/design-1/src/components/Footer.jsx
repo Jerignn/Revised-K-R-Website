@@ -2,6 +2,9 @@ import { business } from "../data/content.js";
 import { siteMenu } from "../../../shared/pages.js";
 import logoWhite from "../../../assets/img/logo-white.png";
 
+const title = "mb-3.5 font-mono text-xs/6 font-medium tracking-[0.14em] text-white uppercase";
+const list = "grid gap-2";
+
 function Footer() {
   const year = new Date().getFullYear();
 
@@ -10,22 +13,22 @@ function Footer() {
   const singleLinks = siteMenu.filter((link) => !link.children);
 
   return (
-    <footer className="footer">
+    <footer className="bg-night pt-[72px] pb-[120px] text-base/6 text-night-muted [&_a]:no-underline [&_a:hover]:text-peach">
       <div className="wrap">
-        <div className="footer__top">
-          <img className="footer__logo" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
-          <p className="footer__about">
-            Locally owned &amp; operated. <em>Your home comfort is our #1 priority.</em>
+        <div className="flex flex-wrap items-center justify-between gap-6 border-b-[3px] border-double border-night-hair pb-9">
+          <img className="h-16 w-auto" src={logoWhite} alt="K&R Heating & Cooling" width="145" height="85" loading="lazy" />
+          <p className="max-w-[34ch] font-serif text-[22px]/[1.35] text-night-text">
+            Locally owned &amp; operated. <em className="text-peach">Your home comfort is our #1 priority.</em>
           </p>
         </div>
 
-        <div className="footer__grid">
+        <div className="grid gap-9 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {menusWithPages.map((menu) => (
             <div key={menu.href}>
-              <h2 className="footer__title">
+              <h2 className={title}>
                 <a href={menu.href}>{menu.label}</a>
               </h2>
-              <ul>
+              <ul className={list}>
                 {menu.children.map((child) => (
                   <li key={child.href}>
                     <a href={child.href}>{child.label}</a>
@@ -36,8 +39,8 @@ function Footer() {
           ))}
 
           <div>
-            <h2 className="footer__title">Company</h2>
-            <ul>
+            <h2 className={title}>Company</h2>
+            <ul className={list}>
               {singleLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href}>{link.label}</a>
@@ -47,8 +50,8 @@ function Footer() {
           </div>
 
           <div>
-            <h2 className="footer__title">Contact</h2>
-            <ul>
+            <h2 className={title}>Contact</h2>
+            <ul className={list}>
               <li><a href={business.phoneLink}>{business.phone}</a></li>
               <li>
                 <address>
@@ -62,7 +65,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="footer__base">
+        <div className="flex flex-wrap justify-between gap-3 border-t border-night-hair pt-[22px] font-mono text-xs/6 font-medium tracking-[0.08em] uppercase">
           <span>© {year} K&amp;R Heating &amp; Cooling. All rights reserved.</span>
           <span>Printed in Kerrville, Texas</span>
         </div>
